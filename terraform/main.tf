@@ -170,17 +170,6 @@ resource "aws_route_table_association" "public" {
 }
 
 
-terraform {
-  required_version = ">= 1.0"
-
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 4.62"
-    }
-  }
-}
-
 
 variable "dns_support" {
   type        = string
@@ -263,4 +252,5 @@ variable "env" {
   default     = ""
   description = "env"
 }
+
 
