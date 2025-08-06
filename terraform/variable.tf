@@ -1,1 +1,2 @@
-cidr_block_vpc = 10.0.0.0/16
+#cidr_block_vpc = 10.0.0.0/16
+
