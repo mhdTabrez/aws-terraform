@@ -17,11 +17,11 @@ resource "aws_vpc" "myvpc" {
    cidr_block        = var.private_subnet[count.index]
    availability_zone = var.az[count.index]
 
-   tags = merge ({
-       "Name"      = "${var.env}-${var.az[count.index]}"}, var.private_subnet_tags)
-    // "kubernetes.io/role/internal-elb"  = "1"
-    // "kubernetes.io/cluster/${var.cluster_name}"           = "shared"
-    // "kubernetes.io/cluster/${var.cluster_name_migration}" = "shared"
+  tags = merge ({
+    //   "Name"      = "${var.env}-${var.az[count.index]}"}, var.private_subnet_tags)
+     "kubernetes.io/role/internal-elb"  = "1"
+     "kubernetes.io/cluster/${var.cluster_name}"           = "shared"
+     "kubernetes.io/cluster/${var.cluster_name_migration}" = "shared"
    }
  
   resource "aws_subnet" "DB" {
@@ -31,10 +31,10 @@ resource "aws_vpc" "myvpc" {
    availability_zone = var.az[count.index]
 
    tags = merge ({
-       "Name"      = "${var.env}-${var.az[count.index]}"}, var.DB_subnet_tags)
-    // "kubernetes.io/role/internal-elb"  = "1"
-    // "kubernetes.io/cluster/${var.cluster_name}"           = "shared"
-    // "kubernetes.io/cluster/${var.cluster_name_migration}" = "shared"
+      // "Name"      = "${var.env}-${var.az[count.index]}"}, var.DB_subnet_tags)
+     "kubernetes.io/role/internal-elb"  = "1"
+     "kubernetes.io/cluster/${var.cluster_name}"           = "shared"
+     "kubernetes.io/cluster/${var.cluster_name_migration}" = "shared"
    }
 
  resource "aws_subnet" "public" {
@@ -44,10 +44,10 @@ resource "aws_vpc" "myvpc" {
    availability_zone = var.az[count.index]
 
    tags = merge( {
-       "Name"   = "${var.env}-${var.az[count.index]}"}, var.public_subnet_tags)
-    // "kubernetes.io/role/internal-elb"  = "1"
-    // "kubernetes.io/cluster/${var.cluster_name}"           = "shared"
-    // "kubernetes.io/cluster/${var.cluster_name_migration}" = "shared"
+      // "Name"   = "${var.env}-${var.az[count.index]}"}, var.public_subnet_tags)
+     "kubernetes.io/role/internal-elb"  = "1"
+     "kubernetes.io/cluster/${var.cluster_name}"           = "shared"
+     "kubernetes.io/cluster/${var.cluster_name_migration}" = "shared"
    }
  
 
@@ -168,6 +168,7 @@ resource "aws_route_table_association" "public" {
   subnet_id      = aws_subnet.public[count.index].id
   route_table_id = aws_route_table.public.id
 }
+
 
 
 
