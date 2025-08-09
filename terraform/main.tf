@@ -23,7 +23,7 @@ resource "aws_vpc" "myvpc" {
      "kubernetes.io/cluster/${var.cluster_name}"           = "shared"
      "kubernetes.io/cluster/${var.cluster_name_migration}" = "shared"
    }
- 
+ }
   resource "aws_subnet" "DB" {
    count = length(var.DB_subnet)
    vpc_id            = aws_vpc.myvpc.id
@@ -36,7 +36,7 @@ resource "aws_vpc" "myvpc" {
      "kubernetes.io/cluster/${var.cluster_name}"           = "shared"
      "kubernetes.io/cluster/${var.cluster_name_migration}" = "shared"
    }
-
+}
  resource "aws_subnet" "public" {
    count             = length(var.public_subnet)
    vpc_id            = aws_vpc.myvpc.id
@@ -49,7 +49,7 @@ resource "aws_vpc" "myvpc" {
      "kubernetes.io/cluster/${var.cluster_name}"           = "shared"
      "kubernetes.io/cluster/${var.cluster_name_migration}" = "shared"
    }
- 
+ }
 
 
 
@@ -168,6 +168,7 @@ resource "aws_route_table_association" "public" {
   subnet_id      = aws_subnet.public[count.index].id
   route_table_id = aws_route_table.public.id
 }
+
 
 
 
