@@ -1,4 +1,4 @@
-    cluster_name        = "dev.cluster_name"
+#    cluster_name        = "dev.cluster_name"
     env                 = dev
     cidr_block_vpc      = "10.0.0.0/16"
     az                  = ["us-east-1a", "us-east-1b"]
@@ -17,6 +17,7 @@
       #"kubernetes.io/cluster/${var.cluster_name_migration}" = "shared"
 
     }
+
 
 
 
