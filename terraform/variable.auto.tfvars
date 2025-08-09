@@ -1,5 +1,5 @@
     cluster_name        = "dev.cluster_name"
-    env                 = dev
+  //  env                 = dev
     cidr_block_vpc      =  [ "10.0.0.0/16" ]
     az                  = ["us-east-1a", "us-east-1b"]
     private_subnet      = ["10.0.0.0/19", "10.0.32.0/19"]
