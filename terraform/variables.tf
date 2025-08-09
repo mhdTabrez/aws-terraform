@@ -5,6 +5,12 @@ variable "dns_support" {
   description = "dns_support"
 }
 
+variable "cluster_name" {
+  type        = string
+  default     = "true"
+  description = "cluster_name"
+}
+
 variable "dns_host" {
   type        = string
   default     = "true"
